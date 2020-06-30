@@ -18,7 +18,19 @@ cron "10 0 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scrip
 # 网易云签到
 http-request ^https?:\/\/music\.163\.com\/?.? script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/neteasemusic/neteasemusic.cookie.js
 cron "6 0 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/neteasemusic/neteasemusic.js
-
+# 哈啰出行
+http-request ^https:\/\/gameapi\.hellobike\.com\/api script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/hellobike/hellobike.js, requires-body=true
+cron "5 0 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/hellobike/hellobike.js
+# 不背单词
+http-request ^https:\/\/sapi\.beingfine\.cn\/v3\/bb\/reward\/by-sign-in script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bubei/bubei.js
+cron "10 0 0 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bubei/bubei.js
+# 什么值得买
+http-request ^https:\/\/www\.smzdm\.com\/?.? script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/smzdm/smzdm.cookie.js
+cron "10 0 0 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/smzdm/smzdm.js
+# 美团外卖
+http-request ^https:\/\/promotion.waimai.meituan.com\/playcenter\/signIn\/entry script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/wmmeituan/wmmeituan.cookie.js
+http-request ^https:\/\/promotion.waimai.meituan.com\/playcenter\/signIn\/doaction script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/wmmeituan/wmmeituan.cookie.js,requires-body=true
+cron "10 0 0 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/wmmeituan/wmmeituan.js
 
 [MITM]
-hostname = %APPEND% *.iqiyi.com, api.m.jd.com, i.meituan.com, *.video.qq.com, music.163.com
+hostname = %APPEND% *.iqiyi.com, api.m.jd.com, i.meituan.com, *.video.qq.com, music.163.com, gameapi.hellobike.com, sapi.beingfine.cn, *.smzdm.com, promotion.waimai.meituan.com

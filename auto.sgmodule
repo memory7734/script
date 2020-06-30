@@ -1,0 +1,24 @@
+#!name=签到
+#!desc=签到脚本
+#!system=ios
+
+[Script]
+# 爱奇艺
+http-request https?:\/\/.*\.iqiyi\.com\/.*authcookie= script-path=https://raw.githubusercontent.com/NobyDa/Script/master/iQIYI-DailyBonus/iQIYI.js
+cron "0 9 * * *" script-path=https://raw.githubusercontent.com/NobyDa/Script/master/iQIYI-DailyBonus/iQIYI.js
+# 腾讯视频签到（浏览器访问: https://film.qq.com/）
+http-request ^https:\/\/access.video.qq.com\/user\/auth_refresh script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/videoqq/videoqq.cookie.js
+cron 5 0 * * * script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/videoqq/videoqq.js
+# 京东签到
+http-request https:\/\/api\.m\.jd\.com\/client\.action.*functionId=signBean max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
+cron "5 0 * * *" script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
+# 美团签到
+http-request ^https:\/\/i.meituan.com\/evolve\/signin\/signpost\/ requires-body=1 max-size=0 script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/meituan/meituan.cookie.js
+cron 10 0 * * * script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/meituan/meituan.js
+# 网易云签到
+http-request ^https?:\/\/music\.163\.com\/?.? script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/neteasemusic/neteasemusic.cookie.js
+cron 6 0 * * * script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/neteasemusic/neteasemusic.js
+
+
+[MITM]
+hostname = %APPEND% *.iqiyi.com, api.m.jd.com, i.meituan.com, *.video.qq.com, music.163.com

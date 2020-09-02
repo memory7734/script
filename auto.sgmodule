@@ -35,4 +35,4 @@ cron "1 0 0 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scri
 http-request ^https://[\s\S]*\.googlevideo\.com/.*&(oad|ctier) script-path=https://Choler.github.io/Surge/Script/YouTube.js
 
 [MITM]
-hostname = %APPEND% *.iqiyi.com, api.m.jd.com, i.meituan.com, *.video.qq.com, gameapi.hellobike.com, sapi.beingfine.cn, *.smzdm.com, *.youtube.com, youtubei.googleapis.com
+hostname = %APPEND% *.iqiyi.com, api.m.jd.com, i.meituan.com, *.video.qq.com, gameapi.hellobike.com, sapi.beingfine.cn, *.smzdm.com, *.googlevideo.com, *.youtube.com, youtubei.googleapis.com
